@@ -1,0 +1,10 @@
+Source: https://github.com/xxguaigo/ops-lab1-17/actions/runs/40178712917/job/121124939013
+2026-10-25T08:58:11.9037050Z ##[group]Run echo "event_name=${EVENT_NAME}"
+2026-10-25T08:58:11.9037487Z [36;1mecho "event_name=${EVENT_NAME}"[0m
+2026-10-25T08:58:11.9037791Z [36;1mecho "ref=${REF}"[0m
+2026-10-25T08:58:11.9038045Z [36;1mecho "sha=${SHA}"[0m
+2026-10-25T08:58:11.9038314Z [36;1mecho "pr_head_sha=${PR_HEAD_SHA}"[0m
+2026-10-25T08:58:11.9399325Z event_name=pull_request
+2026-10-25T08:58:11.9399847Z ref=refs/pull/1/merge
+2026-10-25T08:58:11.9400394Z sha=b2097560dd6910b6ad4fcf0d1320a368ffff5bbf
+2026-10-25T08:58:11.9401264Z pr_head_sha=d1687ebe1d9f2c30963110f8fe36fe950d51061d

@@ -1,0 +1,18 @@
+$ bash -e -o pipefail -c VERSION=${RAW_TAG#v}
+echo "VERSION=$VERSION"
+make package VERSION="$VERSION" BUILD_NO="$BUILD_NO" RUN_ID="$RUN_ID" COMMIT="$COMMIT"
+sha256sum "dist/enroll-conflict_${VERSION}_linux_amd64/enroll-conflict" dist/*.tar.gz
+(cd dist && sha256sum -c ./*.tar.gz.sha256)
+
+VERSION=0.0.0-local
+mkdir -p dist/enroll-conflict_0.0.0-local_linux_amd64
+CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -trimpath -ldflags "-X main.version=0.0.0-local -X main.commit=4a8d26154c76e675d31fa14e51a173eab6470887 -X main.buildNo=local" -o dist/enroll-conflict_0.0.0-local_linux_amd64/enroll-conflict .
+printf 'name=%s\nversion=%s\nbuild_no=%s\nrun_id=%s\ncommit=%s\ngo=%s\n' \
+	'enroll-conflict' '0.0.0-local' 'local' 'local' '4a8d26154c76e675d31fa14e51a173eab6470887' "$(go env GOVERSION)" > dist/enroll-conflict_0.0.0-local_linux_amd64/BUILD_INFO
+tar --sort=name --owner=0 --group=0 --numeric-owner --mtime=@0 -C dist -cf - enroll-conflict_0.0.0-local_linux_amd64 | gzip -n > dist/enroll-conflict_0.0.0-local_linux_amd64.tar.gz
+cd dist && sha256sum enroll-conflict_0.0.0-local_linux_amd64.tar.gz > enroll-conflict_0.0.0-local_linux_amd64.tar.gz.sha256
+4b3f0d2e634f4d2f7fa91117e00548a90b1707c52a87f2cfbe6d83f372672a83  dist/enroll-conflict_0.0.0-local_linux_amd64/enroll-conflict
+e13c88d763a3a33662122e7c459c8821569c5e384b8f69fb228d2c00955e4dae  dist/enroll-conflict_0.0.0-local_linux_amd64.tar.gz
+enroll-conflict_0.0.0-local_linux_amd64.tar.gz: OK
+
+exit_code=0

@@ -1,0 +1,11 @@
+$ go test -count=1 -run ^TestWeeksOverlapPatterns$ ./...
+--- FAIL: TestWeeksOverlapPatterns (0.00s)
+    --- FAIL: TestWeeksOverlapPatterns/odd/odd (0.00s)
+        conflict_regression_test.go:25: weeksOverlap("odd", "odd") = false, want true
+    --- FAIL: TestWeeksOverlapPatterns/even/even (0.00s)
+        conflict_regression_test.go:25: weeksOverlap("even", "even") = false, want true
+FAIL
+FAIL	enroll-conflict	0.003s
+FAIL
+
+exit_code=1

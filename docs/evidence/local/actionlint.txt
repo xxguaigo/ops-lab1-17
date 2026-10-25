@@ -1,0 +1,3 @@
+$ /mnt/c/Users/ASUS/Documents/Codex/2026-10-25/https-github-com-xxguaigo-ops-lab1-3/work/toolchain/actionlint-bin/actionlint -shellcheck= -pyflakes=
+
+exit_code=0

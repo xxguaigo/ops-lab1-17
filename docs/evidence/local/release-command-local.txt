@@ -1,0 +1,4 @@
+$ bash -e -o pipefail -c gh release create "$RAW_TAG" dist/*.tar.gz dist/*.tar.gz.sha256 --verify-tag --title "$RAW_TAG" --generate-notes
+
+
+exit_code=0

@@ -1,0 +1,13 @@
+$ git -c user.name=Local verification -c user.email=local-verification@example.invalid merge --no-edit origin/feat/bug-and-fix origin/feat/hidden-bug-and-test origin/feat/release-workflow
+Trying simple merge with origin/feat/bug-and-fix
+Trying simple merge with origin/feat/hidden-bug-and-test
+Trying simple merge with origin/feat/release-workflow
+Merge made by the 'octopus' strategy.
+ .github/workflows/release.yml | 58 +++++++++++++++++++++++++++++++++++++++++++
+ conflict_regression_test.go   | 29 ++++++++++++++++++++++
+ conflict_test.go              |  7 ++++++
+ 3 files changed, 94 insertions(+)
+ create mode 100644 .github/workflows/release.yml
+ create mode 100644 conflict_regression_test.go
+
+exit_code=0

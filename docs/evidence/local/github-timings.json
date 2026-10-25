@@ -1,0 +1,281 @@
+{
+  "source": "GitHub public REST API",
+  "timezone": "UTC timestamps; LAB1.md displays UTC+08:00",
+  "runs": [
+    {
+      "id": 40182761992,
+      "number": 9,
+      "name": "ci",
+      "path": ".github/workflows/ci.yml",
+      "title": "test: 补充双周对双周冲突用例",
+      "event": "pull_request",
+      "branch": "feat/even-weeks-test",
+      "sha": "f5daef3dec6ca686341465f8cb7e6a3cad638872",
+      "created_at": "2026-10-25T09:57:14Z",
+      "run_started_at": "2026-10-25T09:57:14Z",
+      "updated_at": "2026-10-25T09:57:31Z",
+      "conclusion": "success",
+      "attempt": 1,
+      "url": "https://github.com/xxguaigo/ops-lab1-17/actions/runs/40182761992"
+    },
+    {
+      "id": 40180253297,
+      "number": 8,
+      "name": "ci",
+      "path": ".github/workflows/ci.yml",
+      "title": "feat: add release workflow with gate",
+      "event": "pull_request",
+      "branch": "feat/release-workflow",
+      "sha": "f7de6a17741a4960e7d39d2bf4138f529ecd21fc",
+      "created_at": "2026-10-25T09:20:42Z",
+      "run_started_at": "2026-10-25T09:20:42Z",
+      "updated_at": "2026-10-25T09:20:56Z",
+      "conclusion": "success",
+      "attempt": 1,
+      "url": "https://github.com/xxguaigo/ops-lab1-17/actions/runs/40180253297"
+    },
+    {
+      "id": 40180161223,
+      "number": 1,
+      "name": ".github/workflows/release.yml",
+      "path": ".github/workflows/release.yml",
+      "title": "feat: add release workflow with gate",
+      "event": "push",
+      "branch": "feat/release-workflow",
+      "sha": "f7de6a17741a4960e7d39d2bf4138f529ecd21fc",
+      "created_at": "2026-10-25T09:19:27Z",
+      "run_started_at": "2026-10-25T09:19:27Z",
+      "updated_at": "2026-10-25T09:19:27Z",
+      "conclusion": "failure",
+      "attempt": 1,
+      "url": "https://github.com/xxguaigo/ops-lab1-17/actions/runs/40180161223"
+    },
+    {
+      "id": 40179793609,
+      "number": 7,
+      "name": "ci",
+      "path": ".github/workflows/ci.yml",
+      "title": "feat/hidden-bug-and-test",
+      "event": "pull_request",
+      "branch": "feat/hidden-bug-and-test",
+      "sha": "768c534b99f9251a17cb083f107dca53afcb2c9f",
+      "created_at": "2026-10-25T09:14:05Z",
+      "run_started_at": "2026-10-25T09:14:05Z",
+      "updated_at": "2026-10-25T09:14:34Z",
+      "conclusion": "success",
+      "attempt": 1,
+      "url": "https://github.com/xxguaigo/ops-lab1-17/actions/runs/40179793609"
+    },
+    {
+      "id": 40179668087,
+      "number": 6,
+      "name": "ci",
+      "path": ".github/workflows/ci.yml",
+      "title": "feat/hidden-bug-and-test",
+      "event": "pull_request",
+      "branch": "feat/hidden-bug-and-test",
+      "sha": "d779b219594dc09e0895040096f32a0bbb5d9735",
+      "created_at": "2026-10-25T09:12:12Z",
+      "run_started_at": "2026-10-25T09:12:12Z",
+      "updated_at": "2026-10-25T09:12:34Z",
+      "conclusion": "failure",
+      "attempt": 1,
+      "url": "https://github.com/xxguaigo/ops-lab1-17/actions/runs/40179668087"
+    },
+    {
+      "id": 40179317872,
+      "number": 5,
+      "name": "ci",
+      "path": ".github/workflows/ci.yml",
+      "title": "feat/hidden-bug-and-test",
+      "event": "pull_request",
+      "branch": "feat/hidden-bug-and-test",
+      "sha": "9c6a8f4ee87b91a0555033cad03f1af17c0c9646",
+      "created_at": "2026-10-25T09:07:00Z",
+      "run_started_at": "2026-10-25T09:07:00Z",
+      "updated_at": "2026-10-25T09:07:17Z",
+      "conclusion": "success",
+      "attempt": 1,
+      "url": "https://github.com/xxguaigo/ops-lab1-17/actions/runs/40179317872"
+    },
+    {
+      "id": 40178712917,
+      "number": 4,
+      "name": "ci",
+      "path": ".github/workflows/ci.yml",
+      "title": "bug: break weeksOverlap function",
+      "event": "pull_request",
+      "branch": "feat/bug-and-fix",
+      "sha": "d1687ebe1d9f2c30963110f8fe36fe950d51061d",
+      "created_at": "2026-10-25T08:58:03Z",
+      "run_started_at": "2026-10-25T08:58:03Z",
+      "updated_at": "2026-10-25T08:58:19Z",
+      "conclusion": "success",
+      "attempt": 1,
+      "url": "https://github.com/xxguaigo/ops-lab1-17/actions/runs/40178712917"
+    },
+    {
+      "id": 40178652666,
+      "number": 3,
+      "name": "ci",
+      "path": ".github/workflows/ci.yml",
+      "title": "bug: break weeksOverlap function",
+      "event": "pull_request",
+      "branch": "feat/bug-and-fix",
+      "sha": "9292af90f3f9c67983f2396abfd191da361ca8a1",
+      "created_at": "2026-10-25T08:57:04Z",
+      "run_started_at": "2026-10-25T08:57:04Z",
+      "updated_at": "2026-10-25T08:57:19Z",
+      "conclusion": "failure",
+      "attempt": 1,
+      "url": "https://github.com/xxguaigo/ops-lab1-17/actions/runs/40178652666"
+    },
+    {
+      "id": 40177677055,
+      "number": 2,
+      "name": "ci",
+      "path": ".github/workflows/ci.yml",
+      "title": "bug: break weeksOverlap function",
+      "event": "pull_request",
+      "branch": "feat/bug-and-fix",
+      "sha": "f4b2837863966f59a4cb7e3624440d23d0552af1",
+      "created_at": "2026-10-25T08:42:18Z",
+      "run_started_at": "2026-10-25T08:42:18Z",
+      "updated_at": "2026-10-25T08:42:43Z",
+      "conclusion": "failure",
+      "attempt": 1,
+      "url": "https://github.com/xxguaigo/ops-lab1-17/actions/runs/40177677055"
+    },
+    {
+      "id": 40176780006,
+      "number": 1,
+      "name": "ci",
+      "path": ".github/workflows/ci.yml",
+      "title": "feat: add ci workflow",
+      "event": "push",
+      "branch": "main",
+      "sha": "60941b340605a219d8a06a1be1dba7310898612a",
+      "created_at": "2026-10-25T08:28:52Z",
+      "run_started_at": "2026-10-25T08:28:52Z",
+      "updated_at": "2026-10-25T08:29:31Z",
+      "conclusion": "success",
+      "attempt": 1,
+      "url": "https://github.com/xxguaigo/ops-lab1-17/actions/runs/40176780006"
+    }
+  ],
+  "prs": [
+    {
+      "number": 4,
+      "title": "test: 补充双周对双周冲突用例",
+      "author": "Yu-Liang-Yan",
+      "created_at": "2026-10-25T09:57:10Z",
+      "updated_at": "2026-10-25T10:06:10Z",
+      "merged_at": null,
+      "head": "f5daef3dec6ca686341465f8cb7e6a3cad638872",
+      "url": "https://github.com/xxguaigo/ops-lab1-17/pull/4"
+    },
+    {
+      "number": 3,
+      "title": "feat: add release workflow with gate",
+      "author": "xxguaigo",
+      "created_at": "2026-10-25T09:20:38Z",
+      "updated_at": "2026-10-25T09:31:26Z",
+      "merged_at": null,
+      "head": "f7de6a17741a4960e7d39d2bf4138f529ecd21fc",
+      "url": "https://github.com/xxguaigo/ops-lab1-17/pull/3"
+    },
+    {
+      "number": 2,
+      "title": "feat/hidden-bug-and-test",
+      "author": "xxguaigo",
+      "created_at": "2026-10-25T09:06:56Z",
+      "updated_at": "2026-10-25T09:30:36Z",
+      "merged_at": null,
+      "head": "768c534b99f9251a17cb083f107dca53afcb2c9f",
+      "url": "https://github.com/xxguaigo/ops-lab1-17/pull/2"
+    },
+    {
+      "number": 1,
+      "title": "bug: break weeksOverlap function",
+      "author": "xxguaigo",
+      "created_at": "2026-10-25T08:42:13Z",
+      "updated_at": "2026-10-25T09:03:41Z",
+      "merged_at": null,
+      "head": "d1687ebe1d9f2c30963110f8fe36fe950d51061d",
+      "url": "https://github.com/xxguaigo/ops-lab1-17/pull/1"
+    }
+  ],
+  "jobs": {
+    "40182761992": {
+      "id": 121137117232,
+      "started_at": "2026-10-25T09:57:17Z",
+      "completed_at": "2026-10-25T09:57:30Z",
+      "conclusion": "success"
+    },
+    "40180253297": {
+      "id": 121129591041,
+      "started_at": "2026-10-25T09:20:45Z",
+      "completed_at": "2026-10-25T09:20:55Z",
+      "conclusion": "success"
+    },
+    "40179793609": {
+      "id": 121128207147,
+      "started_at": "2026-10-25T09:14:08Z",
+      "completed_at": "2026-10-25T09:14:33Z",
+      "conclusion": "success"
+    },
+    "40179668087": {
+      "id": 121127811198,
+      "started_at": "2026-10-25T09:12:15Z",
+      "completed_at": "2026-10-25T09:12:33Z",
+      "conclusion": "failure"
+    },
+    "40179317872": {
+      "id": 121126747159,
+      "started_at": "2026-10-25T09:07:04Z",
+      "completed_at": "2026-10-25T09:07:17Z",
+      "conclusion": "success"
+    },
+    "40178712917": {
+      "id": 121124939013,
+      "started_at": "2026-10-25T08:58:06Z",
+      "completed_at": "2026-10-25T08:58:19Z",
+      "conclusion": "success"
+    },
+    "40178652666": {
+      "id": 121124750647,
+      "started_at": "2026-10-25T08:57:08Z",
+      "completed_at": "2026-10-25T08:57:18Z",
+      "conclusion": "failure"
+    },
+    "40177677055": {
+      "id": 121121797959,
+      "started_at": "2026-10-25T08:42:21Z",
+      "completed_at": "2026-10-25T08:42:42Z",
+      "conclusion": "failure"
+    },
+    "40176780006": {
+      "id": 121119052234,
+      "started_at": "2026-10-25T08:28:55Z",
+      "completed_at": "2026-10-25T08:29:30Z",
+      "conclusion": "success"
+    }
+  },
+  "pr1_commits": [
+    {
+      "sha": "f4b2837863966f59a4cb7e3624440d23d0552af1",
+      "committer_date": "2026-10-25T08:41:16Z",
+      "message": "bug: break weeksOverlap function\n\nChange return value of weeksOverlap function to false."
+    },
+    {
+      "sha": "9292af90f3f9c67983f2396abfd191da361ca8a1",
+      "committer_date": "2026-10-25T08:57:00Z",
+      "message": "fix: repair weeksOverlap logic\n\nRefactor weeksOverlap function to check for equality."
+    },
+    {
+      "sha": "d1687ebe1d9f2c30963110f8fe36fe950d51061d",
+      "committer_date": "2026-10-25T08:57:59Z",
+      "message": "fix: repair weeksOverlap logic"
+    }
+  ]
+}

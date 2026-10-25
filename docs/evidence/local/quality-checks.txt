@@ -1,0 +1,6 @@
+$ make fmt-check vet test
+go vet ./...
+go test -count=1 ./...
+ok  	enroll-conflict	0.002s
+
+exit_code=0
