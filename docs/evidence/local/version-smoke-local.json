@@ -1,0 +1,14 @@
+[
+  {
+    "version": "0.0.1-local",
+    "commit": "4a8d26154c76e675d31fa14e51a173eab6470887",
+    "build_no": "local",
+    "go": "go1.26.9"
+  },
+  {
+    "version": "0.0.0-local",
+    "commit": "4a8d26154c76e675d31fa14e51a173eab6470887",
+    "build_no": "local",
+    "go": "go1.26.9"
+  }
+]

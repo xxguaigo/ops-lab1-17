@@ -1,0 +1,9 @@
+$ make package VERSION=1.0.0 BUILD_NO=8 RUN_ID=local COMMIT=60941b340605a219d8a06a1be1dba7310898612a
+mkdir -p dist/enroll-conflict_1.0.0_linux_amd64
+CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -trimpath -ldflags "-X main.version=1.0.0 -X main.commit=60941b340605a219d8a06a1be1dba7310898612a -X main.buildNo=8" -o dist/enroll-conflict_1.0.0_linux_amd64/enroll-conflict .
+printf 'name=%s\nversion=%s\nbuild_no=%s\nrun_id=%s\ncommit=%s\ngo=%s\n' \
+	'enroll-conflict' '1.0.0' '8' 'local' '60941b340605a219d8a06a1be1dba7310898612a' "$(go env GOVERSION)" > dist/enroll-conflict_1.0.0_linux_amd64/BUILD_INFO
+tar --sort=name --owner=0 --group=0 --numeric-owner --mtime=@0 -C dist -cf - enroll-conflict_1.0.0_linux_amd64 | gzip -n > dist/enroll-conflict_1.0.0_linux_amd64.tar.gz
+cd dist && sha256sum enroll-conflict_1.0.0_linux_amd64.tar.gz > enroll-conflict_1.0.0_linux_amd64.tar.gz.sha256
+
+exit_code=0

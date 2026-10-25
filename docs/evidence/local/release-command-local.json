@@ -1,0 +1,1 @@
+["release", "create", "v0.0.0-local", "dist/enroll-conflict_0.0.0-local_linux_amd64.tar.gz", "dist/enroll-conflict_0.0.0-local_linux_amd64.tar.gz.sha256", "--verify-tag", "--title", "v0.0.0-local", "--generate-notes"]

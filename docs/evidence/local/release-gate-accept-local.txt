@@ -1,0 +1,11 @@
+$ bash -e -o pipefail -c git fetch origin main
+if git merge-base --is-ancestor "$TAG_SHA" origin/main; then
+    echo "OK: tag commit is on main branch"
+else
+    echo "ERROR: tag commit NOT in main history"
+    exit 1
+fi
+
+OK: tag commit is on main branch
+
+exit_code=0

@@ -1,0 +1,12 @@
+Source: https://github.com/xxguaigo/ops-lab1-17/actions/runs/40176780006/job/121119052234
+2026-10-25T08:29:00.4755046Z ##[group]Run echo "event_name=${EVENT_NAME}"
+2026-10-25T08:29:00.4755322Z [36;1mecho "event_name=${EVENT_NAME}"[0m
+2026-10-25T08:29:00.4755508Z [36;1mecho "ref=${REF}"[0m
+2026-10-25T08:29:00.4755667Z [36;1mecho "sha=${SHA}"[0m
+2026-10-25T08:29:00.4755839Z [36;1mecho "pr_head_sha=${PR_HEAD_SHA}"[0m
+2026-10-25T08:29:00.5045794Z event_name=push
+2026-10-25T08:29:00.5046040Z ref=refs/heads/main
+2026-10-25T08:29:00.5046246Z sha=60941b340605a219d8a06a1be1dba7310898612a
+2026-10-25T08:29:00.5046434Z pr_head_sha=
+2026-10-25T08:29:23.5324544Z 768c02dcf7b7572b8060dc48be79bd0f17329d3dc76c20765c986e6c16666c57  dist/enroll-conflict_0.0.0-main_linux_amd64.tar.gz
+2026-10-25T08:29:23.5325161Z f485f0f9fd876d8f7629ef1ad31c3879ca9829942747d9f1952bee014f808734  dist/enroll-conflict_0.0.0-main_linux_amd64.tar.gz.sha256

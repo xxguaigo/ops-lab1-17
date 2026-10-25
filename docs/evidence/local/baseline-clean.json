@@ -1,0 +1,6 @@
+{
+  "binary_sha256": "f23447d406c42af7dd35e23c2d1b2f15484cfb709cc9b4bb1262643694b8528e",
+  "archive_sha256": "ed80f42d8190aaf2aa6323e401fef54602e9d4a881f4f1fd82e2e6745d178e86",
+  "build_info": "name=enroll-conflict\nversion=1.0.0\nbuild_no=1\nrun_id=local\ncommit=7b63b41c13f061439997b0e6e4eaa2af922a7aa1\ngo=go1.26.9\n",
+  "vcs": "\tbuild\tvcs=git\n\tbuild\tvcs.revision=7b63b41c13f061439997b0e6e4eaa2af922a7aa1\n\tbuild\tvcs.time=2026-10-12T16:26:07Z\n\tbuild\tvcs.modified=false"
+}

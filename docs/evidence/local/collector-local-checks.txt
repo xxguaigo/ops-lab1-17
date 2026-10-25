@@ -1,0 +1,68 @@
+Offline fixtures: local package; no GitHub download or remote writes.
+$ bash -n scripts/collect-release-evidence.sh
+
+exit_code=0
+
+$ bash scripts/collect-release-evidence.sh v1.0.0 18082
+enroll-conflict_1.0.0_linux_amd64.tar.gz: OK
+== 1. 校验和
+enroll-conflict_1.0.0_linux_amd64.tar.gz: OK
+== 2. 制品里的 BUILD_INFO
+name=enroll-conflict
+version=1.0.0
+build_no=7
+run_id=local
+commit=60941b340605a219d8a06a1be1dba7310898612a
+go=go1.26.9
+== 3. 提交 60941b340605a219d8a06a1be1dba7310898612a
+作者: xxguaigo <xxguaigo@gmail.com>
+时间: 2026-10-25T16:28:46+08:00
+标题: feat: add ci workflow
+主干: 该提交在 origin/main 的历史上
+指向它的 tag: （无）
+版本号: 1.0.0    构建号: 7
+（origin 不是 GitHub 地址，无法给出提交页面链接）
+{"version": "1.0.0", "commit": "60941b340605a219d8a06a1be1dba7310898612a", "build_no": "7", "go": "go1.26.9"}
+Saved actual Release evidence to dist/release/evidence; copy it to LAB1.md.
+
+exit_code=0
+
+$ bash scripts/collect-release-evidence.sh v1.0.0 18082
+enroll-conflict_1.0.0_linux_amd64.tar.gz: OK
+== 1. 校验和
+enroll-conflict_1.0.0_linux_amd64.tar.gz: OK
+== 2. 制品里的 BUILD_INFO
+name=enroll-conflict
+version=1.0.0
+build_no=7
+run_id=local
+commit=60941b340605a219d8a06a1be1dba7310898612a
+go=go1.26.9
+== 3. 提交 60941b340605a219d8a06a1be1dba7310898612a
+作者: xxguaigo <xxguaigo@gmail.com>
+时间: 2026-10-25T16:28:46+08:00
+标题: feat: add ci workflow
+主干: 该提交在 origin/main 的历史上
+指向它的 tag: （无）
+版本号: 1.0.0    构建号: 7
+（origin 不是 GitHub 地址，无法给出提交页面链接）
+{"version": "1.0.0", "commit": "60941b340605a219d8a06a1be1dba7310898612a", "build_no": "7", "go": "go1.26.9"}
+Saved actual Release evidence to dist/release/evidence; copy it to LAB1.md.
+
+exit_code=0
+
+$ bash scripts/collect-release-evidence.sh v1.0.0 18082
+enroll-conflict_1.0.0_linux_amd64.tar.gz: OK
+Hash changed since the first download; original record kept.
+
+exit_code=1
+
+$ bash scripts/collect-release-evidence.sh v9.9.9
+Expected v1.0.0 or v1.0.1
+
+exit_code=2
+
+$ bash scripts/collect-release-evidence.sh v1.0.0 invalid
+Port must be between 1024 and 65535
+
+exit_code=2
