@@ -51,3 +51,10 @@ func TestValid(t *testing.T) {
 		}
 	}
 }
+
+func TestValid_SundayBoundary(t *testing.T) {
+	s := Section{Weekday: 7, Start: 1, End: 2, Weeks: AllWeeks}
+	if !s.Valid() {
+		t.Error("Sunday (weekday=7) should be valid")
+	}
+}
