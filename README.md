@@ -46,3 +46,4 @@ dist/enroll-conflict_1.0.0_linux_amd64/enroll-conflict -version
 
 ## 版本历史
 - v1.0.0: 首个正式发布版本
+# test
