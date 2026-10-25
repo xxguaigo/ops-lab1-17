@@ -44,13 +44,17 @@ jobs:
           RUN_ID: ${{ github.run_id }}
           COMMIT: ${{ github.sha }}
         run: |
-          make package VERSION=${VERSION} BUILD_NO=${BUILD_NO} RUN_ID=${RUN_ID} COMMIT=${COMMIT}
-          sha256sum dist/*.tar.gz dist/*.tar.gz.sha256
+          make package VERSION="$VERSION" BUILD_NO="$BUILD_NO" RUN_ID="$RUN_ID" COMMIT="$COMMIT"
+          sha256sum "dist/enroll-conflict_${VERSION}_linux_amd64/enroll-conflict" dist/*.tar.gz
+          (cd dist && sha256sum -c ./*.tar.gz.sha256)
 
       - name: Upload artifact
         if: github.event_name == 'push'
         uses: actions/upload-artifact@v7
         with:
           name: artifact-${{ github.sha }}-${{ github.run_number }}
-          path: dist/*.tar.gz
+          path: |
+            dist/*.tar.gz
+            dist/*.tar.gz.sha256
+          if-no-files-found: error
           retention-days: 14
