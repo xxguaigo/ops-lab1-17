@@ -1,0 +1,6 @@
++ git fetch origin main
++ git merge-base --is-ancestor $GITHUB_SHA origin/main
++ echo 'ERROR: tag commit is NOT in main history'
+ERROR: tag commit is NOT in main history
++ exit 1
+Error: Process completed with exit code 1.

@@ -6,5 +6,5 @@ remote:
 remote: - Required status check "ci" is expected.        
 remote: 
 To https://github.com/xxguaigo/ops-lab1-17.git
- ! [remote rejected] test-main-push -> main (push declined due to repository rule violations)
+ ! [remote rejected] test-main-push2 -> main (push declined due to repository rule violations)
 error: failed to push some refs to 'https://github.com/xxguaigo/ops-lab1-17.git'
