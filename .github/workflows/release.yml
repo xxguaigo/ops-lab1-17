@@ -56,3 +56,77 @@ jobs:
           RAW_TAG: ${{ github.ref_name }}
         run: |
           gh release create "$RAW_TAG" dist/*.tar.gz dist/*.tar.gz.sha256 --verify-tag --title "$RAW_TAG" --generate-notes
+
+  # 选做 O1：使用 Release 附件构建并发布容器镜像；镜像中不重新编译。
+  image:
+    name: Publish GHCR image (O1)
+    needs: release
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - name: Checkout Dockerfile
+        uses: actions/checkout@v7
+
+      - name: Download and verify the published Release package
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RAW_TAG: ${{ github.ref_name }}
+        run: |
+          set -euo pipefail
+          VERSION="${RAW_TAG#v}"
+          mkdir -p dist/release
+          gh release download "$RAW_TAG" --dir dist/release --pattern "enroll-conflict_${VERSION}_linux_amd64.tar.gz" --pattern "enroll-conflict_${VERSION}_linux_amd64.tar.gz.sha256"
+          (cd dist/release && sha256sum -c ./*.tar.gz.sha256)
+          mkdir -p image-context
+          tar -xzf "dist/release/enroll-conflict_${VERSION}_linux_amd64.tar.gz" -C image-context
+          echo "VERSION=$VERSION" >> "$GITHUB_ENV"
+          echo "CONTEXT=image-context/enroll-conflict_${VERSION}_linux_amd64" >> "$GITHUB_ENV"
+
+      - name: Compute lower-case GHCR image name
+        env:
+          REPOSITORY: ${{ github.repository }}
+        run: |
+          echo "IMAGE=ghcr.io/${REPOSITORY,,}" >> "$GITHUB_ENV"
+
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and push image from Release binary
+        env:
+          SOURCE_REPO: ${{ github.repository }}
+          SOURCE_SHA: ${{ github.sha }}
+        run: |
+          set -euo pipefail
+          docker build --platform linux/amd64 \
+            -f "$GITHUB_WORKSPACE/Dockerfile" \
+            --build-arg "VERSION=$VERSION" \
+            --build-arg "COMMIT=$SOURCE_SHA" \
+            --build-arg "SOURCE=https://github.com/$SOURCE_REPO" \
+            -t "$IMAGE:$VERSION" "$CONTEXT"
+          docker push "$IMAGE:$VERSION"
+          docker image inspect "$IMAGE:$VERSION" --format '{{json .RepoDigests}}'
+
+      - name: Record pushed immutable digest
+        env:
+          SOURCE_SHA: ${{ github.sha }}
+        run: |
+          set -euo pipefail
+          docker buildx imagetools inspect "$IMAGE:$VERSION"
+          IMAGE_DIGEST_REF="$(docker image inspect "$IMAGE:$VERSION" --format '{{index .RepoDigests 0}}')"
+          DIGEST="${IMAGE_DIGEST_REF##*@}"
+          test -n "$DIGEST"
+          echo "IMAGE_BY_DIGEST=$IMAGE@$DIGEST" >> "$GITHUB_ENV"
+          {
+            echo '### O1: GHCR image'
+            echo "Tag: \`$IMAGE:$VERSION\`"
+            echo "Digest: \`$DIGEST\`"
+            echo "Immutable reference: \`$IMAGE@$DIGEST\`"
+            echo "Commit: \`$SOURCE_SHA\`"
+            echo 'Architecture: linux/amd64'
+          } >> "$GITHUB_STEP_SUMMARY"
