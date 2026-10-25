@@ -13,12 +13,12 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Release Gate: tag commit must be ancestor of main
+      - name: "Release Gate: tag commit must be ancestor of main"
         env:
           TAG_SHA: ${{ github.sha }}
         run: |
           git fetch origin main
-          if git merge-base --is-ancestor ${TAG_SHA} origin/main ; then
+          if git merge-base --is-ancestor "$TAG_SHA" origin/main; then
               echo "OK: tag commit is on main branch"
           else
               echo "ERROR: tag commit NOT in main history"
@@ -45,12 +45,14 @@ jobs:
           COMMIT: ${{ github.sha }}
         run: |
           VERSION=${RAW_TAG#v}
-          echo VERSION=${VERSION}
-          make package VERSION=${VERSION} BUILD_NO=${BUILD_NO} RUN_ID=${RUN_ID} COMMIT=${COMMIT}
-          sha256sum dist/*.tar.gz dist/*.tar.gz.sha256
+          echo "VERSION=$VERSION"
+          make package VERSION="$VERSION" BUILD_NO="$BUILD_NO" RUN_ID="$RUN_ID" COMMIT="$COMMIT"
+          sha256sum "dist/enroll-conflict_${VERSION}_linux_amd64/enroll-conflict" dist/*.tar.gz
+          (cd dist && sha256sum -c ./*.tar.gz.sha256)
 
       - name: Create GitHub Release
         env:
           GH_TOKEN: ${{ github.token }}
+          RAW_TAG: ${{ github.ref_name }}
         run: |
-          gh release create $RAW_TAG dist/*.tar.gz dist/*.tar.gz.sha256 --title $RAW_TAG
+          gh release create "$RAW_TAG" dist/*.tar.gz dist/*.tar.gz.sha256 --verify-tag --title "$RAW_TAG" --generate-notes
