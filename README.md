@@ -43,3 +43,6 @@ dist/enroll-conflict_1.0.0_linux_amd64/enroll-conflict -version
 | `LAB1.md` | 小组的证据与分析记录，需要填写并提交 |
 
 仓库中没有 `.github/workflows/`：流水线由小组在实验中自行编写。
+
+## 版本历史
+- v1.0.0: 首个正式发布版本
