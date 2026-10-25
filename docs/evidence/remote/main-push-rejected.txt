@@ -1,0 +1,10 @@
+remote: error: GH013: Repository rule violations found for refs/heads/main.        
+remote: Review all repository rules at https://github.com/xxguaigo/ops-lab1-17/rules?ref=refs%2Fheads%2Fmain        
+remote: 
+remote: - Changes must be made through a pull request.        
+remote: 
+remote: - Required status check "ci" is expected.        
+remote: 
+To https://github.com/xxguaigo/ops-lab1-17.git
+ ! [remote rejected] test-main-push2 -> main (push declined due to repository rule violations)
+error: failed to push some refs to 'https://github.com/xxguaigo/ops-lab1-17.git'
