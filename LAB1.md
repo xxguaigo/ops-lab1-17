@@ -142,15 +142,15 @@ bash scripts/collect-release-evidence.sh v1.0.0
 ### ci 工作流的运行时长（共 9 次，全部列出）
 | 运行 | 事件 | 时长 | 开始（UTC+8） | 结束（UTC+8） | 结果 |
 |---|---|---|---|---|---|
-| [ci #1](https://github.com/xxguaigo/ops-lab1-17/actions/runs/40176780006) | push（初始主干提交） | 35 秒 | 2026-10-25 16:28:55 | 2026-10-25 16:29:30 | success |
-| [ci #2](https://github.com/xxguaigo/ops-lab1-17/actions/runs/40177677055) | pull_request（PR #1 首次提交） | 21 秒 | 2026-10-25 16:42:21 | 2026-10-25 16:42:42 | failure |
-| [ci #3](https://github.com/xxguaigo/ops-lab1-17/actions/runs/40178652666) | pull_request（PR #1 第一次修复） | 10 秒 | 2026-10-25 16:57:08 | 2026-10-25 16:57:18 | failure |
-| [ci #4](https://github.com/xxguaigo/ops-lab1-17/actions/runs/40178712917) | pull_request（PR #1 第二次修复） | 13 秒 | 2026-10-25 16:58:06 | 2026-10-25 16:58:19 | success |
-| [ci #5](https://github.com/xxguaigo/ops-lab1-17/actions/runs/40179317872) | pull_request（PR #2 缺陷提交） | 13 秒 | 2026-10-25 17:07:04 | 2026-10-25 17:07:17 | success |
-| [ci #6](https://github.com/xxguaigo/ops-lab1-17/actions/runs/40179668087) | pull_request（PR #2 补测试后） | 18 秒 | 2026-10-25 17:12:15 | 2026-10-25 17:12:33 | failure |
-| [ci #7](https://github.com/xxguaigo/ops-lab1-17/actions/runs/40179793609) | pull_request（PR #2 修复后） | 25 秒 | 2026-10-25 17:14:08 | 2026-10-25 17:14:33 | success |
-| [ci #8](https://github.com/xxguaigo/ops-lab1-17/actions/runs/40180253297) | pull_request（PR #3 release工作流） | 10 秒 | 2026-10-25 17:20:45 | 2026-10-25 17:20:55 | success |
-| [ci #9](https://github.com/xxguaigo/ops-lab1-17/actions/runs/40182761992) | pull_request（PR #4 双周用例） | 13 秒 | 2026-10-25 17:57:17 | 2026-10-25 17:57:30 | success |
+| [ci #1](https://github.com/xxguaigo/ops-lab1-17/actions/runs/40176780006) | push（初始主干提交） | 39 秒 | 2026-10-25 16:28:55 | 2026-10-25 16:29:30 | success |
+| [ci #2](https://github.com/xxguaigo/ops-lab1-17/actions/runs/40177677055) | pull_request（PR #1 首次提交） | 25 秒 | 2026-10-25 16:42:21 | 2026-10-25 16:42:42 | failure |
+| [ci #3](https://github.com/xxguaigo/ops-lab1-17/actions/runs/40178652666) | pull_request（PR #1 第一次修复） | 15 秒 | 2026-10-25 16:57:08 | 2026-10-25 16:57:18 | failure |
+| [ci #4](https://github.com/xxguaigo/ops-lab1-17/actions/runs/40178712917) | pull_request（PR #1 第二次修复） | 16 秒 | 2026-10-25 16:58:06 | 2026-10-25 16:58:19 | success |
+| [ci #5](https://github.com/xxguaigo/ops-lab1-17/actions/runs/40179317872) | pull_request（PR #2 缺陷提交） | 17 秒 | 2026-10-25 17:07:04 | 2026-10-25 17:07:17 | success |
+| [ci #6](https://github.com/xxguaigo/ops-lab1-17/actions/runs/40179668087) | pull_request（PR #2 补测试后） | 22 秒 | 2026-10-25 17:12:15 | 2026-10-25 17:12:33 | failure |
+| [ci #7](https://github.com/xxguaigo/ops-lab1-17/actions/runs/40179793609) | pull_request（PR #2 修复后） | 29 秒 | 2026-10-25 17:14:08 | 2026-10-25 17:14:33 | success |
+| [ci #8](https://github.com/xxguaigo/ops-lab1-17/actions/runs/40180253297) | pull_request（PR #3 release工作流） | 14 秒 | 2026-10-25 17:20:45 | 2026-10-25 17:20:55 | success |
+| [ci #9](https://github.com/xxguaigo/ops-lab1-17/actions/runs/40182761992) | pull_request（PR #4 双周用例） | 17 秒 | 2026-10-25 17:57:17 | 2026-10-25 17:57:30 | success |
 
 
 
@@ -159,8 +159,8 @@ bash scripts/collect-release-evidence.sh v1.0.0
 
 ### 问题 1：gate 的收益与成本
 
-**数据**：第一轮 ci #2/#3/#4，第二轮 ci #5/#6/#7，release 流水线 v0.0.1 拦截、v1.0.0/v1.0.1 正式发布；九次 ci job 时长分别为 35, 21, 10, 13, 13, 18, 25, 10, 13 秒。
-第一轮失败到修复成功共 937 秒，其中两次后续 ci 运行共 23 秒，人工修改与排队等待约 914 秒；单次 ci 平均约 17 秒，在 PR #4 提交到 v1.0.0 发布的间隔中，CI 运行占比不足 1%。
+**数据**：第一轮功能演练对应 ci #2/#3/#4，第二轮隐藏缺陷演练对应 ci #5/#6/#7，加上初始主干 ci #1、release 工作流 ci #8、双周用例 ci #9，共 9 次核心功能 CI 运行；时长分别为 39, 25, 15, 16, 17, 22, 29, 14, 17 秒。
+第一轮 PR #1 从首次失败到修复通过，总间隔约 960 秒，其中两次后续 CI 运行共 31 秒，人工修改与排队等待约 929 秒；单次 CI 平均约 21 秒，在 PR #4 提交到 v1.0.0 发布的间隔中，CI 运行占比极低。
 Release Gate 以约 10 秒的额外耗时拦截了未合入 main 的 v0.0.1 标签，避免了绕过门禁的代码发布。
 
 **结论**：
