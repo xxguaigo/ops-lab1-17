@@ -29,8 +29,9 @@ func (s Section) Valid() bool {
 	switch s.Weeks {
 	case AllWeeks, OddWeeks, EvenWeeks:
 		return true
+	default:
+		return false
 	}
-	return false
 }
 
 // weeksOverlap 判断两个班的上课周次是否有交集：
