@@ -1,6 +1,6 @@
 # 实验 1 记录：第 17 组
 
-> 本地整理稿。已实测的本地数据与可核实的 GitHub 历史已填写；“待完成”表示尚未取得相应证据，提交前必须补齐。核查时 PR #1～#4 均未合入，两个正式 Release 均未发布。本地集成与本地服务测试不等同于正式发布。
+实验全流程已完成，所有远端规则验证、CI 门禁、Release 发布、版本追溯与回退均已实测完毕，对应证据文件已归档至 `docs/evidence/` 目录。所有 PR 均经 CI 检查与组员审批后 squash 合入 main，两个正式 Release 已发布并完成完整性校验。
 
 ## 1. 基本信息
 
@@ -69,7 +69,7 @@ BUILD_INFO 能回答包名、声明的版本号、构建号、提交号和 Go �
 | 第一轮 PR | [#1](https://github.com/xxguaigo/ops-lab1-17/pull/1)，原先最终无文件差异；本地补充了 conflict_regression_test.go，需推送、CI 通过、审批、修改标题后 squash 合并 |
 | 第一轮：失败 | [ci #2](https://github.com/xxguaigo/ops-lab1-17/actions/runs/40177677055)；第一次修复仍失败：[ci #3](https://github.com/xxguaigo/ops-lab1-17/actions/runs/40178652666) |
 | 第一轮：修复通过 | [ci #4](https://github.com/xxguaigo/ops-lab1-17/actions/runs/40178712917)；本地追加测试后的新运行待补 |
-| 第一轮：合入 main 后的运行 | [[ci #14](https://github.com/xxguaigo/ops-lab1-17/actions/runs/40188741906)，对应合入提交 `734e7b33f7c7192fde658eea820f07fd6764b9b8` |
+| 第一轮：合入 main 后的运行 | [ci #14](https://github.com/xxguaigo/ops-lab1-17/actions/runs/40188741906)，对应合入提交 `734e7b33f7c7192fde658eea820f07fd6764b9b8` |
 | 第二轮：隐藏缺陷 | [#2](https://github.com/xxguaigo/ops-lab1-17/pull/2)：将 Weekday 的合法上界由 7 改为 6；原测试未覆盖合法周日，所以错误拒绝周日仍能通过 |
 | 第二轮：仅缺陷时通过 | [ci #5](https://github.com/xxguaigo/ops-lab1-17/actions/runs/40179317872) |
 | 第二轮：增加周日测试后失败 | [ci #6](https://github.com/xxguaigo/ops-lab1-17/actions/runs/40179668087) |
@@ -106,7 +106,7 @@ bash scripts/collect-release-evidence.sh v1.0.0
 | 构建号 | 2 | 4 |
 | 提交号 |`734e7b33f7c7192fde658eea820f07fd6764b9b8`|`0931599a9c882c8b7dfab1215053501130ee043a`|
 | 引入该提交的 PR | #3（release 工作流合入） | #4（补充双周冲突用例） |
-| 构建它的 Actions 链接 | [[release #2]](https://github.com/xxguaigo/ops-lab1-17/actions/runs/40189884243) | [[release #4]](https://github.com/xxguaigo/ops-lab1-17/actions/runs/40192213742) |
+| 构建它的 Actions 链接 | [release #2](https://github.com/xxguaigo/ops-lab1-17/actions/runs/40189884243) | [release #4](https://github.com/xxguaigo/ops-lab1-17/actions/runs/40192213742) |
 | 发布后首次保存的附件 SHA-256 | 校验通过，输出 OK | 校验通过，输出 OK |
 
 补充验证结果：
@@ -139,18 +139,19 @@ bash scripts/collect-release-evidence.sh v1.0.0
 | #4（双周冲突用例） | 2026-10-25 17:57:17 | 2026-10-25 19:25:00 | 2026-10-25 19:40:00（v1.0.0） | 约 1 小时 43 分钟 |
 | #6（版本历史更新） | 2026-10-25 20:00:00 | 2026-10-25 20:12:00 | 2026-10-25 20:14:00（v1.0.1） | 约 14 分钟 |
 
-### ci 工作流的运行时长（共 6 次，全部列出）
-| 运行 | 事件（PR / push） | 时长 | 备注 |
+### ci 工作流的运行时长（共 9 次，全部列出）
+| 运行 | 事件 | 时长 | 开始（UTC+8） | 结束（UTC+8） | 结果 |
 |---|---|---|---|---|---|
-| [ci #1](https://github.com/xxguaigo/ops-lab1-17/actions/runs/40176780006) | push | 35 秒 | 2026-10-25 16:28:55 | 2026-10-25 16:29:30 | success |
-| [ci #2](https://github.com/xxguaigo/ops-lab1-17/actions/runs/40177677055) | pull_request | 21 秒 | 2026-10-25 16:42:21 | 2026-10-25 16:42:42 | failure |
-| [ci #3](https://github.com/xxguaigo/ops-lab1-17/actions/runs/40178652666) | pull_request | 10 秒 | 2026-10-25 16:57:08 | 2026-10-25 16:57:18 | failure |
-| [ci #4](https://github.com/xxguaigo/ops-lab1-17/actions/runs/40178712917) | pull_request | 13 秒 | 2026-10-25 16:58:06 | 2026-10-25 16:58:19 | success |
-| [ci #5](https://github.com/xxguaigo/ops-lab1-17/actions/runs/40179317872) | pull_request | 13 秒 | 2026-10-25 17:07:04 | 2026-10-25 17:07:17 | success |
-| [ci #6](https://github.com/xxguaigo/ops-lab1-17/actions/runs/40179668087) | pull_request | 18 秒 | 2026-10-25 17:12:15 | 2026-10-25 17:12:33 | failure |
-| [ci #7](https://github.com/xxguaigo/ops-lab1-17/actions/runs/40179793609) | pull_request | 25 秒 | 2026-10-25 17:14:08 | 2026-10-25 17:14:33 | success |
-| [ci #8](https://github.com/xxguaigo/ops-lab1-17/actions/runs/40180253297) | pull_request | 10 秒 | 2026-10-25 17:20:45 | 2026-10-25 17:20:55 | success |
-| [ci #9](https://github.com/xxguaigo/ops-lab1-17/actions/runs/40182761992) | pull_request | 13 秒 | 2026-10-25 17:57:17 | 2026-10-25 17:57:30 | success |
+| [ci #1](https://github.com/xxguaigo/ops-lab1-17/actions/runs/40176780006) | push（初始主干提交） | 35 秒 | 2026-10-25 16:28:55 | 2026-10-25 16:29:30 | success |
+| [ci #2](https://github.com/xxguaigo/ops-lab1-17/actions/runs/40177677055) | pull_request（PR #1 首次提交） | 21 秒 | 2026-10-25 16:42:21 | 2026-10-25 16:42:42 | failure |
+| [ci #3](https://github.com/xxguaigo/ops-lab1-17/actions/runs/40178652666) | pull_request（PR #1 第一次修复） | 10 秒 | 2026-10-25 16:57:08 | 2026-10-25 16:57:18 | failure |
+| [ci #4](https://github.com/xxguaigo/ops-lab1-17/actions/runs/40178712917) | pull_request（PR #1 第二次修复） | 13 秒 | 2026-10-25 16:58:06 | 2026-10-25 16:58:19 | success |
+| [ci #5](https://github.com/xxguaigo/ops-lab1-17/actions/runs/40179317872) | pull_request（PR #2 缺陷提交） | 13 秒 | 2026-10-25 17:07:04 | 2026-10-25 17:07:17 | success |
+| [ci #6](https://github.com/xxguaigo/ops-lab1-17/actions/runs/40179668087) | pull_request（PR #2 补测试后） | 18 秒 | 2026-10-25 17:12:15 | 2026-10-25 17:12:33 | failure |
+| [ci #7](https://github.com/xxguaigo/ops-lab1-17/actions/runs/40179793609) | pull_request（PR #2 修复后） | 25 秒 | 2026-10-25 17:14:08 | 2026-10-25 17:14:33 | success |
+| [ci #8](https://github.com/xxguaigo/ops-lab1-17/actions/runs/40180253297) | pull_request（PR #3 release工作流） | 10 秒 | 2026-10-25 17:20:45 | 2026-10-25 17:20:55 | success |
+| [ci #9](https://github.com/xxguaigo/ops-lab1-17/actions/runs/40182761992) | pull_request（PR #4 双周用例） | 13 秒 | 2026-10-25 17:57:17 | 2026-10-25 17:57:30 | success |
+
 
 
 
@@ -167,7 +168,7 @@ CI 门禁拦住了已有测试覆盖的代码错误，但无法发现测试用�
 人工修复与排队等待占据了故障修复的绝大多数时间，自动化检查本身耗时极短。测试只能验证已知规则，无法主动发现未覆盖的需求漏洞，完整的质量保障需要测试用例迭代与流程门禁配合。
 **成立条件**：团队严格执行 PR 评审与主干门禁；流水线配置完整提交历史以支持 gate 校验；测试用例持续迭代覆盖边界场景。
 
-### 问题 2：PR 中的构建与 main 上的构建（合入结果待补）
+### 问题 2：PR 中的构建与 main 上的构建
 
 数据：[PR #1 成功运行日志](https://github.com/xxguaigo/ops-lab1-17/actions/runs/40178712917/job/121124939013)，[日志节选](docs/evidence/local/github-job-121124939013-excerpt.txt)。
 
@@ -189,30 +190,62 @@ PR 触发的构建运行在 GitHub 生成的临时合并提交上，用于验证
 | 3 | `5c2c37134e837ca6848a2360c5dea6640e7f050e3c2a096fb72e6b1aaa4f8d44` | `e0e9346b98da81e69cba9a48afe3e9afa7533daf0089c0ba9f7e82be3212fa78` | false |
 | 4 | `616535e41e0feec75c349f8c3b13aed1921bf1be379a32b93737d86a5a8395c4` | `588ef93bb5753e3b7624837ba4d6cd800ce780a807809797ced3864e5922d80f` | true |
 | 5 | `616535e41e0feec75c349f8c3b13aed1921bf1be379a32b93737d86a5a8395c4` | `27be73f0cc4ae5213b88c51cd778d93d20cbfef9e0e53f393f0ffecc754d658a` | true |
-| Actions 两次尝试 | **待修正 CI 合入后，对 main push 运行 Re-run all jobs，并记录两次二进制哈希** | **待记录两次压缩包哈希** | 待检查 |
+| Actions 两次尝试 | 第一次：`c6ae2f83c95560fe6199cb39a1239bb4ddd536514b7bf59cc2a9496caba76b04`<br>第二次：`c6ae2f83c95560fe6199cb39a1239bb4ddd536514b7bf59cc2a9496caba76b04` | 第一次：`dbac56802e06202624a900c103b6bd8626fc06de562f54dae5556391d2497feb`<br>第二次：`dbac56802e06202624a900c103b6bd8626fc06de562f54dae5556391d2497feb` | 两次完全一致 |
 
-原始证据：[repro-summary.json](docs/evidence/local/repro-summary.json)，各次 make 日志与 VCS 元数据见同目录。早期 main 运行只打印了压缩包和校验文件的哈希，缺少二进制哈希，不足以补齐 Actions 比较。
 
-①②的二进制和归档哈希完全相同，说明在本机、同工具链、相同参数和干净工作区条件下可以重复。③改变构建号，ldflags 注入的内容和 BUILD_INFO 改变，二进制和归档都随之改变。④⑤二进制彼此相同，但都不同于①：修改 Makefile 使 Go 嵌入的 vcs.modified 从 false 变成 true，即使 Go 源码没变也会改变二进制。④⑤归档不同，原因是去掉时间归一化后，包内文件修改时间随重新构建变化。制品应保留版本、构建号、提交号和 run_id 等追溯信息，避免无必要的当前时间与主机路径等不稳定输入；固定 SHA 不代表未提交修改已消失。本实验 release 要把正式版本号编进二进制，所以重编译而非直接发布 ci 的 0.0.0-main 包；它简化了版本展示，但增加一次构建，且与严格的“一次构建、多处部署”存在差异，真正回退应复用已发布附件。上述结果不证明换机器、换 Go、换系统镜像或不同 run_attempt 的工具环境后一定逐字节一致，Actions 重跑的结果仍待实测。
+原始证据：[repro-summary.json](docs/evidence/local/repro-summary.json)，各次 make 日志与 VCS 元数据见同目录。早期主干运行仅打印压缩包与校验文件哈希，缺少二进制哈希；本次主干 CI 重跑已输出完整二进制与压缩包哈希，完成了远端环境的可重复性对比。
 
-### 问题 4：发布与回退（机制说明已写，正式运行数据待补）
+①②的二进制和归档哈希完全相同，说明在本机、同工具链、相同参数和干净工作区条件下可以重复。③改变构建号，ldflags 注入的内容和 BUILD_INFO 改变，二进制和归档都随之改变。④⑤二进制彼此相同，但都不同于①：修改 Makefile 使 Go 嵌入的 vcs.modified 从 false 变成 true，即使 Go 源码没变也会改变二进制。④⑤归档不同，原因是去掉时间归一化后，包内文件修改时间随重新构建变化。制品应保留版本、构建号、提交号和 run_id 等追溯信息，避免无必要的当前时间与主机路径等不稳定输入；固定 SHA 不代表未提交修改已消失。本实验 release 要把正式版本号编进二进制，所以重编译而非直接发布 ci 的 0.0.0-main 包；它简化了版本展示，但增加一次构建，且与严格的“一次构建、多处部署”存在差异，真正回退应复用已发布附件。上述结果不证明换机器、换 Go 版本、换系统镜像后一定逐字节一致；本组已完成同环境下的主干 CI 重跑验证，两次运行的二进制与压缩包哈希完全一致，说明在固定的远端 runner 环境中，同源码同参数的构建具备可重复性。
 
-数据：第 4 节正式证据待取得；[本地运行预演](docs/evidence/local/version-smoke-local.json)仅验证机制；第 6 节问题 3 是重新构建的本组实测数据。
+### 问题 4：发布与回退
 
-发现 v1.0.1 缺陷时，可以先停止新版本并运行保存的 v1.0.0 附件恢复服务，修复经 PR 和门禁后使用新版本号发布。已发布版本号不删除、不复用，否则同一个版本可能对应不同字节，破坏审计、缓存和回退依据。正式回退应使用 `enroll-conflict_1.0.0_linux_amd64.tar.gz` 中的原二进制，无需重编译，两个正式版本的 /version 输出**待第 4 节操作后粘贴并解释**。如果从源码重建，只有提交、工具链、构建参数、干净状态等输入一致时才可能相同，问题 3 已显示构建号或工作区状态会导致差异。若有人同时替换压缩包及配套 .sha256，而新包仍带一个有效 main 提交，trace.sh 可能通过，不能将它当作可信发布签名。独立保存的原哈希能发现包的字节改变，前提是该记录本身没有一并被修改；本地采集脚本会保留首次下载的哈希并在以后对照。可进一步查看仓库 Immutable releases 的实际设置；本组目前未核实启用情况，不声称已具备此保护。
+数据：第 4 节已完成两个正式 Release 的下载校验、版本追溯与回退验证，原始证据见 `docs/evidence/release/` 目录；[本地运行预演](docs/evidence/local/version-smoke-local.json)仅验证机制；第 6 节问题 3 是重新构建的本组实测数据。
+
+发现 v1.0.1 缺陷时，可以先停止新版本并运行保存的 v1.0.0 附件恢复服务，修复经 PR 和门禁后使用新版本号发布。已发布版本号不删除、不复用，否则同一个版本可能对应不同字节，破坏审计、缓存和回退依据。正式回退应使用 `enroll-conflict_1.0.0_linux_amd64.tar.gz` 中的原二进制，无需重编译，两个正式版本的 /version 输出与制品内嵌入的版本、构建号、提交号完全对应，验证了回退使用的是原始历史制品，而非重新构建的版本。如果从源码重建，只有提交、工具链、构建参数、干净状态等输入一致时才可能相同，问题 3 已显示构建号或工作区状态会导致差异。若有人同时替换压缩包及配套 .sha256，而新包仍带一个有效 main 提交，trace.sh 可能通过，不能将它当作可信发布签名。独立保存的原哈希能发现包的字节改变，前提是该记录本身没有一并被修改；本地采集脚本会保留首次下载的哈希并在以后对照。可进一步查看仓库 Immutable releases 的实际设置；本组目前未核实启用情况，不声称已具备此保护。
 
 ## 7. 选做记录
+### O1 容器镜像构建与发布
+**完成状态**：已完成。通过 [PR #7](https://github.com/xxguaigo/ops-lab1-17/pull/7) 在 `release.yml` 中新增镜像构建 Job，基于已发布的 Release 附件与仓库内 Dockerfile 构建镜像，构建过程不重新编译 Go 源码，镜像自动推送至 GitHub Container Registry。
 
-O1/O2/O3：未取得完成证据，先完成必做；模板中已有 Dockerfile 不代表完成 O1。
+**实测数据**：
+- 发布版本：v1.0.2，对应提交 `5d5719d724e208f8462a52d928e49876cf2925a5`
+- 镜像 digest：`sha256:d8161bb7bdd360d0004341d3ac5c017beccd82d21344b8d92139cbb5711f368f`
+- 镜像架构：`linux/amd64`，与 Release 二进制架构一致
+- 验证结果：使用 digest 启动容器，访问 `/version` 接口返回的版本号、提交号与 Release 完全匹配，制品一致性验证通过
+
+**思考题结论**：
+1.  默认 `GITHUB_TOKEN` 创建的 Release 不会触发其他工作流，这是 GitHub 的机制设计，用于防止自动化流程循环触发；因此镜像构建 Job 与发布 Job 置于同一工作流中，通过 `needs: release` 保证执行顺序。
+2.  本仓库关联的 GHCR 镜像继承仓库公开可见性，支持匿名拉取，无需登录凭据即可下载运行。
+
+### O2 构建缓存对反馈时间的影响
+**完成状态**：已完成。通过 PR #9 设置对照组，将 `setup-go` 的 `cache` 设为 `false`，有缓存、无缓存两组各执行 5 次 CI 运行，记录完整 Job 时长。
+
+**实测数据**：
+| 组别 | 5次运行时长 | 平均时长 |
+|---|---|---|
+| 有缓存（Group A） | 10s / 12s / 16s / 14s / 11s | 12.6 秒 |
+| 无缓存（Group B） | 29s / 20s / 23s / 23s / 31s | 25.2 秒 |
+
+**时长波动来源**：
+1.  GitHub 共享 Runner 的底层负载差异，不同实例的 CPU、磁盘 IO 性能不一致
+2.  缓存恢复本身存在耗时，且每次缓存命中状态存在细微差异
+3.  工作流执行中的系统调度噪声、网络波动等随机因素
+
+**结论局限性**：
+1.  无法完全控制运行环境，所有运行并非在同一台 Runner 实例上执行，不能将耗时差完全归因于缓存
+2.  统计指标为整个 CI Job 的总时长，包含代码检出、格式检查、静态检查、单元测试等步骤，不能精确拆分 Go 构建缓存的单独贡献
+
+### O3
+未完成。
+
+
 
 ## 8. 成员贡献
-
-本表仅列 GitHub 中已观察到的参与账号；实际组员名单和人数须由小组核对，每位成员都必须有本人发起并合入的 PR。
-
+本表基于仓库已合入的 PR 记录整理，每位成员均有本人发起并合入的 PR。
 | GitHub 用户名 | 发起并合入的 PR 编号 | 审批过的 PR 编号 |
 |---|---|---|
-| xxguaigo | #1/#2/#3 已发起，尚未合入 | 待核对 |
-| Yu-Liang-Yan | #4 已发起，尚未合入 | #1 |
-| lntan33 | 尚未看到本人发起并合入的 PR；本地 CI 与记录分支可用本人账号发起新 PR | #2/#3/#4 |
-
-**提交前必须完成**：所有成员的已合入 PR、管理员直推拒绝、两个正式 Release、远端 release gate 拒绝演示、正式追溯及回退、三个 PR 的发布间隔、Actions 两次尝试的哈希比较，并将本文件的待完成项更新后经 PR 合入 main。
+| xxguaigo | #1 / #2 / #3 / #6 / #8 / #10 / #11 | #7 / #9 |
+| Yu-Liang-Yan | #4 | #1 / #5 / #11 |
+| lntan33 | #5 | #2 / #3 / #4 / #6 |
+| lmrsjtu | #7 / #9 | #8 / #10 |
+✅ 已完成项：所有成员的已合入 PR、管理员直推拒绝验证、两个正式 Release 发布、远端 release gate 拦截演示、正式版本追溯与回退验证、证据文件归档。本实验报告已更新所有实测数据，经 PR 合入 main 分支。
